@@ -72,6 +72,7 @@ class _EmpresasPageState extends State<EmpresasPage> {
 
   List data = [];
   List imagesUrl = [];
+  List listaempresas = [];
   var http = HttpClient();
   Future<String> fetchDataFromApi() async {
 
@@ -79,14 +80,14 @@ class _EmpresasPageState extends State<EmpresasPage> {
 
     // original
     //HttpClientRequest request = await http.getUrl(Uri.parse("https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
-
+    print("Antes http");
     HttpClientRequest request = await http.getUrl(Uri.parse("http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsempresas.php"));
 
 
     //var fetchData = jsonDecode(jsonData.body);
     HttpClientResponse response = await request.close();
     var jsonData = await response.transform(utf8.decoder).join();
-    //print("hito3 "+ jsonData.toString());
+    print("hito3 "+ jsonData.toString());
     var fetchData = jsonDecode(jsonData);
 
     setState(() {
@@ -95,6 +96,7 @@ class _EmpresasPageState extends State<EmpresasPage> {
       data.forEach((element) {
         imagesUrl.add(element['url']);
         images.add(element['url']);
+        listaempresas.add("Empresa 1");
       });
     });
 
@@ -146,7 +148,8 @@ class _EmpresasPageState extends State<EmpresasPage> {
                             ),
                           ),
                           Text(
-                            'Title',
+                            //'Title',
+                            listaempresas[indice],
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -155,7 +158,7 @@ class _EmpresasPageState extends State<EmpresasPage> {
                           Row(
                             children: [
                               Text(
-                                'Subtitle',
+                                'Descripción',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,

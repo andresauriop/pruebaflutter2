@@ -32,13 +32,24 @@ class _DetalleProductoState extends State<DetalleProducto> {
 
   List data = [];
   List imagesUrl = [];
+  List descripciones = [];
   var http = HttpClient();
 
   Future<String> fetchDataFromApi() async {
     //var jsonData
 
-    HttpClientRequest request = await http.getUrl(Uri.parse(
+    /*HttpClientRequest request = await http.getUrl(Uri.parse(
         "https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
+    */
+    String urlprocesado = "http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsdetalleproductos.php?";
+
+    urlprocesado += "empresa="+widget.codigoempresa;
+    urlprocesado += "&producto="+widget.codigoproducto;
+    print(urlprocesado);
+    HttpClientRequest request = await http.getUrl(Uri.parse(urlprocesado));
+
+
+
     //var fetchData = jsonDecode(jsonData.body);
     HttpClientResponse response = await request.close();
     var jsonData = await response.transform(utf8.decoder).join();
@@ -52,6 +63,7 @@ class _DetalleProductoState extends State<DetalleProducto> {
       data.forEach((element) {
         imagesUrl.add(element['url']);
         images.add(element['url']);
+        descripciones.add(element['descripcion']);
         print("hito5 " + element['url']);
       });
     });
@@ -103,7 +115,8 @@ class _DetalleProductoState extends State<DetalleProducto> {
         ListView(
             padding: const EdgeInsets.all(8),
             children: <Widget>[
-              ListTile( title: Text("Ballot"), leading: Icon(Icons.ballot), trailing: Icon(Icons.star)),
+              ListTile( title: Text("Producto"), leading: Icon(Icons.ballot), trailing: Icon(Icons.star)),
+
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: SingleChildScrollView(
@@ -134,9 +147,9 @@ class _DetalleProductoState extends State<DetalleProducto> {
                           ])
                 )
               ),
-              ListTile( title: Text("Detalle"), leading: Icon(Icons.ballot), trailing: Icon(Icons.star)),
-              //Text("hola a todos"),
-              Text("Empresa " + widget.codigoempresa + " producto " + widget.codigoproducto)
+              //ListTile( title: Text( descripciones[0]), leading: Icon(Icons.ballot), trailing: Icon(Icons.star)),
+              //Text(descripciones[0]),
+              Text("Empresa " + widget.codigoempresa + " producto " + widget.codigoproducto )
             ]
     )
 

@@ -50,6 +50,7 @@ class _ProductosHomePageState extends State<ProductosHomePage> {
 
   List data = [];
   List imagesUrl = [];
+  List descripciones = [];
   var http = HttpClient();
   Future<String> fetchDataFromApi() async {
 
@@ -70,11 +71,12 @@ class _ProductosHomePageState extends State<ProductosHomePage> {
     var fetchData = jsonDecode(jsonData);
 
     setState(() {
-      print("hito4 "+ fetchData.toString());
+      //print("hito4 "+ fetchData.toString());
       data = fetchData;
       data.forEach((element) {
         imagesUrl.add(element['url']);
         images.add(element['url']);
+        descripciones.add(element['descripcion']);
       });
     });
 
@@ -144,7 +146,8 @@ class _ProductosHomePageState extends State<ProductosHomePage> {
                             ),
                           ),
                           Text(
-                            'Title',
+                            //'Title',
+                            descripciones[indice],
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
