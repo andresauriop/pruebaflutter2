@@ -55,7 +55,14 @@ class _ProductosHomePageState extends State<ProductosHomePage> {
 
     //var jsonData
 
-    HttpClientRequest request = await http.getUrl(Uri.parse("https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
+    //HttpClientRequest request = await http.getUrl(Uri.parse("https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
+    String urlprocesado = "http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsproductos.php?";
+
+    urlprocesado += "empresa="+widget.codigoempresa;
+    print(urlprocesado);
+    HttpClientRequest request = await http.getUrl(Uri.parse(urlprocesado));
+
+    //HttpClientRequest request = await http.getUrl(Uri.parse("http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsproductos.php"));
     //var fetchData = jsonDecode(jsonData.body);
     HttpClientResponse response = await request.close();
     var jsonData = await response.transform(utf8.decoder).join();

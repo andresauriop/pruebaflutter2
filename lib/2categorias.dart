@@ -12,7 +12,7 @@ class Categorias extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter App Learning',
+        //title: 'Flutter App Learning',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -138,7 +138,7 @@ class _CategoriasHomeState extends State<CategoriasHome> {
                       child: Container(
                           alignment: Alignment.bottomRight,
                           padding: const EdgeInsets.all(12),
-                          child: const Text("Comida",
+                          child: const Text("Deportes",
                               style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
@@ -150,78 +150,6 @@ class _CategoriasHomeState extends State<CategoriasHome> {
           )
           ),
 
-
-
-
         ]));
-    /*ListView(padding: const EdgeInsets.all(8), children: <Widget>[
-          ListTile(
-              title: Text("Ballot"),
-              leading: Icon(Icons.ballot),
-              trailing: Icon(Icons.star)
-
-
-          ),
-    Column(children:[
-          Padding(
-    padding: const EdgeInsets.all(10.0),
-
-    child: InkWell(
-            onTap: tmpFunction,
-            //child: Image.network('https://flutter-examples.com/wp-content/uploads/2019/09/image_button.png',
-            child:Image.asset("assets/images/tres.jpg",
-              height: 100,
-              width: screenWidth,
-            fit: BoxFit.cover,
-          ),
-          )),Text("hola")]),
-            /*Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                            height: 100,
-                            width: screenWidth,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/tres.jpg"),
-                                //image: NetworkImage(images[i]),
-                                fit: BoxFit.cover,
-                                onError: (Object exception, StackTrace? stackTrace) {
-                                  print('onError');
-                                  print('Exception: $exception');
-                                  print('Stack Trace:\n$stackTrace');
-                                },
-                              ),
-                            ),
-                          ),
-                    ),
-          ),*/
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              height: 100,
-              width: screenWidth,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/tres.jpg"),
-                  //image: NetworkImage(images[i]),
-                  fit: BoxFit.cover,
-                  onError: (Object exception, StackTrace? stackTrace) {
-                    print('onError');
-                    print('Exception: $exception');
-                    print('Stack Trace:\n$stackTrace');
-                  },
-                ),
-              ),
-            ),
-          ),
-          ListTile(
-              title: Text("Detalle"),
-              leading: Icon(Icons.ballot),
-              trailing: Icon(Icons.star)),
-          ListTile(
-              title: Text("Detalle"),
-              leading: Icon(Icons.abc),
-              trailing: Icon(Icons.abc_sharp)),
-        ]));*/
   }
 }

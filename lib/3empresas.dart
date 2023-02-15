@@ -77,15 +77,20 @@ class _EmpresasPageState extends State<EmpresasPage> {
 
     //var jsonData
 
-    HttpClientRequest request = await http.getUrl(Uri.parse("https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
+    // original
+    //HttpClientRequest request = await http.getUrl(Uri.parse("https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
+
+    HttpClientRequest request = await http.getUrl(Uri.parse("http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsempresas.php"));
+
+
     //var fetchData = jsonDecode(jsonData.body);
     HttpClientResponse response = await request.close();
     var jsonData = await response.transform(utf8.decoder).join();
-    print("hito3 "+ jsonData.toString());
+    //print("hito3 "+ jsonData.toString());
     var fetchData = jsonDecode(jsonData);
 
     setState(() {
-      print("hito4 "+ fetchData.toString());
+      //print("hito4 "+ fetchData.toString());
       data = fetchData;
       data.forEach((element) {
         imagesUrl.add(element['url']);

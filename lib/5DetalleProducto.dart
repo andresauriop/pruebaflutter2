@@ -135,7 +135,8 @@ class _DetalleProductoState extends State<DetalleProducto> {
                 )
               ),
               ListTile( title: Text("Detalle"), leading: Icon(Icons.ballot), trailing: Icon(Icons.star)),
-              Text("hola a todos"),
+              //Text("hola a todos"),
+              Text("Empresa " + widget.codigoempresa + " producto " + widget.codigoproducto)
             ]
     )
 

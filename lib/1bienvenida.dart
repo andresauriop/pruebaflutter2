@@ -11,17 +11,17 @@ import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(Aplicacion());
+  //runApp(Splash2());
 }
-
 
 class Aplicacion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Splash Screen',
+      /*title: 'Splash Screen',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+        primarySwatch: Colors.blue,
+      ),*/
       home: Splash2(),
       debugShowCheckedModeBanner: false,
     );
@@ -35,16 +35,16 @@ class Splash2 extends StatelessWidget {
       //navigateAfterSeconds: new MyApp(),//new SecondScreen(),
       navigateAfterSeconds: new Categorias(),
       title: new Text("Bienvenido",style: TextStyle(fontSize: 30,fontFamily: "Verdana",
-          color: Colors.indigoAccent,fontWeight: FontWeight.bold)),
+          color: Colors.blueAccent,fontWeight: FontWeight.bold)),
         image: new Image.asset("assets/images/logouda.jpg"),
       //image: new Image.network('https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png'),
       loadingText: Text("Cargando"),
-      photoSize: 200.0,
-      loaderColor: Colors.blue,
+      photoSize: 150.0,
+      loaderColor: Colors.blueAccent,
     );
   }
 }
-class SecondScreen extends StatelessWidget {
+/*class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +54,6 @@ class SecondScreen extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 
