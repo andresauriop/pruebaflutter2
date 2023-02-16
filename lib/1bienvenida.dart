@@ -31,7 +31,7 @@ class Splash2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 6,
+      seconds: 3,
       //navigateAfterSeconds: new MyApp(),//new SecondScreen(),
       navigateAfterSeconds: new Categorias(),
       title: new Text("Bienvenido",style: TextStyle(fontSize: 30,fontFamily: "Verdana",

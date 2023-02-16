@@ -80,9 +80,8 @@ class _EmpresasPageState extends State<EmpresasPage> {
 
     // original
     //HttpClientRequest request = await http.getUrl(Uri.parse("https://s3-us-west-2.amazonaws.com/appsdeveloperblog.com/tutorials/files/cats.json"));
-    print("Antes http");
-    HttpClientRequest request = await http.getUrl(Uri.parse("http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsempresas.php"));
 
+    HttpClientRequest request = await http.getUrl(Uri.parse("http://panemia.uazuay.edu.ec:8090/pruebasmed/procedimientos/wsempresas.php"));
 
     //var fetchData = jsonDecode(jsonData.body);
     HttpClientResponse response = await request.close();
@@ -93,10 +92,13 @@ class _EmpresasPageState extends State<EmpresasPage> {
     setState(() {
       //print("hito4 "+ fetchData.toString());
       data = fetchData;
+      var cont = 1;
       data.forEach((element) {
         imagesUrl.add(element['url']);
         images.add(element['url']);
-        listaempresas.add("Empresa 1");
+        listaempresas.add("Empresa " + cont.toString());
+        cont++;
+
       });
     });
 
